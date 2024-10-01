@@ -1,0 +1,64 @@
+<h4>Users</h4>
+
+<!-- <pre>{{ users | json }}</pre>
+<p>First Name: {{users.firstName}}</p>
+<p>Last Name: {{users.lastName}}</p>
+<p>Vat Number: {{users.vat}}</p> -->
+<!-- 
+<img [src]="users.data.avatar" [alt]="users.data.id"> -->
+
+
+<!-- 
+<form [formGroup]="createUserForm" (ngSubmit)="createUser()">
+
+    <input type="text" formControlName="firstName" placeholder="First Name">
+    <br><br>
+
+    <input type="text" formControlName="lastName" placeholder="Last Name">
+    <br><br>
+
+    <input type="email" formControlName="email" placeholder="Email">
+    <br><br>
+
+    <input type="text" formControlName="username" placeholder="Username">
+    <br><br>
+
+    <input type="tel" formControlName="phoneNumber" placeholder="Phone Number">
+    <br><br>
+
+    <input type="text" formControlName="address" placeholder="Address">
+    <br><br>
+
+    <input type="text" formControlName="vat" placeholder="VAT">
+    <br><br>
+
+    <input type="password" formControlName="password" placeholder="Password">
+    <br><br>
+
+    <button [disabled]="createUserForm.invalid">Create New User</button>
+    <br>
+    <pre>{{ answer | json }}</pre>
+</form> -->
+<div class="container">
+    <div *ngIf="!users || users.length === 0">
+        <p >No users found.</p>
+    </div>
+
+    <div class="row" *ngIf="users && users.length > 0">
+        <div *ngFor="let user of users" class="col-md-6 col-lg-4">
+            <div class="card user-card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+                <p class="card-text"><strong>id:</strong> {{ user.id }}</p>
+                <p class="card-text"><strong>Username:</strong> {{ user.userName }}</p>
+                <p class="card-text"><strong>Email:</strong> {{ user.email }}</p>
+                <p class="card-text"><strong>Phone:</strong> {{ user.phoneNumber }}</p>
+                <p class="card-text"><strong>Address:</strong> {{ user.address }}</p>
+                <p class="card-text"><strong>VAT:</strong> {{ user.vat }}</p>
+                <button class="btn btn-danger mt-3" (click)="deleteUser(user.id)">Delete</button>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
