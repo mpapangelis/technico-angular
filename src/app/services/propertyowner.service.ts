@@ -9,8 +9,6 @@ export class PropertyownerService {
 
   http = inject(HttpClient);
 
-  //url = 'https://reqres.in/api/users/1';
-
   getUsers(){
     const url = 'http://localhost:8080/Technico/resources/propertyOwner/findAll';
     return this.http.get(url);
@@ -38,6 +36,32 @@ export class PropertyownerService {
         catchError((error) => {
           console.error('Error during soft delete:', error);
           return throwError(() => 'Something went wrong during deletion.');
+        })
+      )
+  }
+
+  updateUser(userId: number, data: any){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const url = `http://localhost:8080/Technico/resources/propertyOwner/update/${userId}`;
+
+    return this.http.put(url, JSON.stringify(data), { headers: headers })
+      .pipe(
+        retry(1),
+        catchError((error) => {
+          console.error(`Error updating user with ID ${userId}:`, error);
+          return throwError(() => `Something went wrong while updating the user.`)
+        })
+      );
+  }
+
+  getUserById(userId: number) {
+    const url = `http://localhost:8080/Technico/resources/propertyOwner/${userId}`;
+    return this.http.get(url)
+      .pipe(
+        retry(1),
+        catchError((error) => {
+          console.error(`Error fetching user with ID ${userId}`, error);
+          return throwError(() => `Something went wrong while fetching the user.`);
         })
       )
   }

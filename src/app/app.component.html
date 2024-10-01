@@ -1,3 +1,10 @@
 <div class="container">
-  <app-propertyowner></app-propertyowner>
+  <nav>
+    <ul>
+      <li><a [routerLink]="['home']" routerLinkActive="active">Home</a></li>
+      <li><a [routerLink]="['create-user']" routerLinkActive="active">Create User</a></li>
+    </ul>
+  </nav>
 </div>
+
+<router-outlet></router-outlet>
