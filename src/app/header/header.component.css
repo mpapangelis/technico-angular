@@ -4,6 +4,8 @@
 }
   
 .navbar-brand {
+    display: flex;
+    align-items: center;
     font-weight: bold;
 }
 
@@ -23,4 +25,17 @@ header {
     z-index: 1000;
     background-color: #f8f9fa;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo-icon {
+    height: 30px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.technico-brand-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #007bff;
+    letter-spacing: 1px;
 }

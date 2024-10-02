@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { PropertyownerService } from '../services/propertyowner.service';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-user',
@@ -16,6 +17,8 @@ export class CreateUserComponent implements OnInit{
 
   fb = inject(FormBuilder);
   service = inject(PropertyownerService);
+  route = inject(ActivatedRoute);
+  router = inject(Router);
 
   answer: any;
   
@@ -90,7 +93,10 @@ export class CreateUserComponent implements OnInit{
       };
 
       this.service.createUser(formData).subscribe({
-        next: response => this.answer = response,
+        next: response => {
+          this.answer = response;
+          this.router.navigate(['/home']);
+        },
         error: err => console.error(`Something is wrong... ${err}`),
       });
 

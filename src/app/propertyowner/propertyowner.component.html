@@ -16,8 +16,8 @@
                 <p class="card-text"><strong>Phone:</strong> {{ user.phoneNumber }}</p>
                 <p class="card-text"><strong>Address:</strong> {{ user.address }}</p>
                 <p class="card-text"><strong>VAT:</strong> {{ user.vat }}</p>
-                <button class="btn btn-primary mt-3" (click)="editUser(user.id)">Edit</button>
-                <button class="btn btn-danger mt-3" (click)="deleteUser(user.id)">Delete</button>
+                <button class="btn btn-primary mt-3" (click)="editUser(user.id)"><i class="bi bi-pencil"></i> Edit</button>
+                <button class="btn btn-danger mt-3" (click)="deleteUser(user.id)"><i class="bi bi-trash"></i> Remove</button>
               </div>
             </div>
           </div>
