@@ -1,10 +1,7 @@
-<div class="container">
-  <nav>
-    <ul>
-      <li><a [routerLink]="['home']" routerLinkActive="active">Home</a></li>
-      <li><a [routerLink]="['create-user']" routerLinkActive="active">Create User</a></li>
-    </ul>
-  </nav>
-</div>
+<app-header></app-header>
 
-<router-outlet></router-outlet>
+<main class="container my-4">
+  <router-outlet></router-outlet>
+</main>
+
+<app-footer></app-footer>

@@ -21,14 +21,14 @@ export class CreateUserComponent implements OnInit{
   
   ngOnInit(): void {
     this.createUserForm = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      username: ['', [Validators.required]],
-      phoneNumber: ['', [Validators.required]],
+      firstName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      lastName: ['', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]],
+      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9]+$')]],
+      phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       address: ['', [Validators.required]],
-      vat: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      vat: ['', [Validators.required, Validators.pattern('^[0-9]{9}$')]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$")]]
     });
   }
 

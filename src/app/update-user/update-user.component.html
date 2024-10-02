@@ -5,42 +5,81 @@
     <div class="form-group">
         <label for="firstName">First Name</label>
         <input id="firstName" type="text" formControlName="firstName" placeholder="First Name" class="form-control">
+        @if (firstName?.hasError('required') && firstName?.touched) {
+            <small class="text-danger">First Name is required.</small>
+        }
+        @if (firstName?.hasError('pattern') && firstName?.touched) {
+            <small class="text-danger">Only letters are allowed.</small>
+        }
     </div>
     <br>
 
     <div class="form-group">
         <label for="lastName">Last Name</label>
         <input id="lastName" type="text" formControlName="lastName" placeholder="Last Name" class="form-control">
+        @if (lastName?.hasError('required') && lastName?.touched) {
+            <small class="text-danger">Last Name is required.</small>
+        }
+        @if (lastName?.hasError('pattern') && lastName?.touched) {
+            <small class="text-danger">Only letters are allowed.</small>
+        }
     </div>
     <br>
 
     <div class="form-group">
         <label for="email">Email</label>
         <input id="email" type="email" formControlName="email" placeholder="Email" class="form-control">
+        @if (email?.hasError('required') && email?.touched) {
+            <small class="text-danger">Email is required.</small>
+        }
+        @if (email?.hasError('email') && email?.touched) {
+            <small class="text-danger">Please enter a valid email address.</small>
+        }
     </div>
     <br>
 
     <div class="form-group">
         <label for="username">Username</label>
         <input id="username" type="text" formControlName="username" placeholder="Username" class="form-control">
+        @if (username?.hasError('required') && username?.touched) {
+            <small class="text-danger">Username is required.</small>
+        }
+        @if (username?.hasError('pattern') && username?.touched) {
+            <small class="text-danger">Username can only contain letters and numbers.</small>
+        }
     </div>
     <br>
 
     <div class="form-group">
         <label for="phoneNumber">Phone Number</label>
         <input id="phoneNumber" type="tel" formControlName="phoneNumber" placeholder="Phone Number" class="form-control">
+        @if (phoneNumber?.hasError('required') && phoneNumber?.touched) {
+            <small class="text-danger">Phone Number is required.</small>
+        }
+        @if (phoneNumber?.hasError('pattern') && phoneNumber?.touched) {
+            <small class="text-danger">Phone Number must be exactly 10 digits.</small>
+        }
     </div>
     <br>
 
     <div class="form-group">
         <label for="address">Address</label>
         <input id="address" type="text" formControlName="address" placeholder="Address" class="form-control">
+        @if (address?.hasError('required') && address?.touched) {
+            <small class="text-danger">Address is required.</small>
+        }
     </div>
     <br>
 
     <div class="form-group">
         <label for="vat">VAT</label>
         <input id="vat" type="text" formControlName="vat" placeholder="VAT" class="form-control">
+        @if (vat?.hasError('required') && vat?.touched) {
+            <small class="text-danger">VAT is required.</small>
+        }
+        @if (vat?.hasError('pattern') && vat?.touched) {
+            <small class="text-danger">VAT must be exactly 9 digits.</small>
+        }
     </div>
     <br>
 

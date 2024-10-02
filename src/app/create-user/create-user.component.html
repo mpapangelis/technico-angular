@@ -1,39 +1,103 @@
-<!-- <pre>{{ users | json }}</pre>
-<p>First Name: {{users.firstName}}</p>
-<p>Last Name: {{users.lastName}}</p>
-<p>Vat Number: {{users.vat}}</p> -->
-<!-- 
-<img [src]="users.data.avatar" [alt]="users.data.id"> -->
-
-
+<h4>Create New User</h4>
 
 <form [formGroup]="createUserForm" (ngSubmit)="createUser()">
 
-    <input type="text" formControlName="firstName" placeholder="First Name">
-    <br><br>
-
-    <input type="text" formControlName="lastName" placeholder="Last Name">
-    <br><br>
-
-    <input type="email" formControlName="email" placeholder="Email">
-    <br><br>
-
-    <input type="text" formControlName="username" placeholder="Username">
-    <br><br>
-
-    <input type="tel" formControlName="phoneNumber" placeholder="Phone Number">
-    <br><br>
-
-    <input type="text" formControlName="address" placeholder="Address">
-    <br><br>
-
-    <input type="text" formControlName="vat" placeholder="VAT">
-    <br><br>
-
-    <input type="password" formControlName="password" placeholder="Password">
-    <br><br>
-
-    <button [disabled]="createUserForm.invalid">Create New User</button>
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input id="firstName" type="text" formControlName="firstName" placeholder="First Name" class="form-control">
+        @if (firstName?.hasError('required') && firstName?.touched) {
+            <small class="text-danger">First Name is required.</small>
+        }
+        @if (firstName?.hasError('pattern') && firstName?.touched) {
+            <small class="text-danger">Only letters are allowed.</small>
+        }
+    </div>
     <br>
-    <!-- <pre>{{ answer | json }}</pre> -->
+
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input id="lastName" type="text" formControlName="lastName" placeholder="Last Name" class="form-control">
+        @if (lastName?.hasError('required') && lastName?.touched) {
+            <small class="text-danger">Last Name is required.</small>
+        }
+        @if (lastName?.hasError('pattern') && lastName?.touched) {
+            <small class="text-danger">Only letters are allowed.</small>
+        }
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email" placeholder="Email" class="form-control">
+        @if (email?.hasError('required') && email?.touched) {
+            <small class="text-danger">Email is required.</small>
+        }
+        @if (email?.hasError('email') && email?.touched) {
+            <small class="text-danger">Please enter a valid email address.</small>
+        }
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input id="username" type="text" formControlName="username" placeholder="Username" class="form-control">
+        @if (username?.hasError('required') && username?.touched) {
+            <small class="text-danger">Username is required.</small>
+        }
+        @if (username?.hasError('pattern') && username?.touched) {
+            <small class="text-danger">Username can only contain letters and numbers.</small>
+        }
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input id="phoneNumber" type="tel" formControlName="phoneNumber" placeholder="Phone Number" class="form-control">
+        @if (phoneNumber?.hasError('required') && phoneNumber?.touched) {
+            <small class="text-danger">Phone Number is required.</small>
+        }
+        @if (phoneNumber?.hasError('pattern') && phoneNumber?.touched) {
+            <small class="text-danger">Phone Number must be exactly 10 digits.</small>
+        }
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input id="address" type="text" formControlName="address" placeholder="Address" class="form-control">
+        @if (address?.hasError('required') && address?.touched) {
+            <small class="text-danger">Address is required.</small>
+        }
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label for="vat">VAT</label>
+        <input id="vat" type="text" formControlName="vat" placeholder="VAT" class="form-control">
+        @if (vat?.hasError('required') && vat?.touched) {
+            <small class="text-danger">VAT is required.</small>
+        }
+        @if (vat?.hasError('pattern') && vat?.touched) {
+            <small class="text-danger">VAT must be exactly 9 digits.</small>
+        }
+    </div>
+    <br>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" placeholder="Password" class="form-control">
+        @if (password?.hasError('required') && password?.touched) {
+            <small class="text-danger">Password is required.</small>
+        }
+        @if (password?.hasError('minlength') && password?.touched) {
+            <small class="text-danger">Password must be at least 8 characters long.</small>
+        }
+        @if (password?.hasError('pattern') && password?.touched) {
+            <small class="text-danger">Password must contain at least one uppercase letter, one lowercase letter, and one number.</small>
+          }
+    </div>
+    <br>
+
+    <button type="submit" class="btn btn-primary" [disabled]="createUserForm.invalid">Create New User</button>
+    <br>
 </form>
