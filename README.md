@@ -1,27 +1,48 @@
-# Technico
+# Technico - Owner Management System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
+## Overview
+Technico is an owner management system developed using Angular for the frontend. This project allows you to **Create**, **Read**, **Update**, and **Delete** (CRUD) owner information. It is designed to handle owner details such as names, email, username, phone number, address, VAT, and password. The system also incorporates form validation to ensure accurate data entry and provides a user-friendly interface.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Create Owner**: A form with validation to create a new owner with details such as name, email, username, VAT, etc.
+- **View Owners**: A dynamic list of owners displayed as individual cards. Each card includes details like name, email, username, phone number, and address.
+- **Edit Owner**: Allows updating owner information by filling out a form pre-populated with the owner’s current data.
+- **Delete Owner**: Soft delete owners by removing them from the list without permanently deleting them from the database.
+- **Routing**: Proper routing is implemented to navigate between different pages, such as the home screen, create owner page, and view all owners.
 
-## Code scaffolding
+## Pages
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Home Page**: Displays the application name and links to "Create Owner" and "View Owners".
+- **Create Owner Page**: Form to create a new owner with input validation.
+- **View Owners Page**: Displays all owners as cards with options to edit or delete owners.
+- **Update Owner Page**: Form to update owner information, pre-filled with the owner's current data.
 
-## Build
+## Technologies Used
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Angular**: Frontend framework used for building the single-page application (SPA).
+- **Bootstrap**: Used for styling and responsive design.
+- **Angular Router**: For navigation between different views (home, create, update).
+- **Reactive Forms**: Used for form handling and validation.
+- **REST API**: Communicates with the backend server to fetch and update owner data.
 
-## Running unit tests
+## Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Clone the repository:
 
-## Running end-to-end tests
+```bash
+git clone https://github.com/mpapangelis/technico-angular.git
+cd technico-angular
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Run the Angular application:
 
-## Further help
+```bash
+ng serve
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Open your browser and navigate to:
+
+```bash
+http://localhost:4200
+```

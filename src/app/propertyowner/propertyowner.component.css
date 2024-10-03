@@ -30,7 +30,7 @@
 }
 
 .user-card .card-text strong {
-  color: #007bff;
+  color: #606f74;
 }
 
 .btn {
@@ -41,13 +41,14 @@
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #595b57;
+  /* background-color: #007bff; */
   border: none;
   color: #fff;
 }
 
 .btn-primary:hover {
-  background-color: #0056b3;
+  background-color: #3a3b38;
   color: #fff;
 }
 
