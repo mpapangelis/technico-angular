@@ -31,7 +31,7 @@ export class CreateUserComponent implements OnInit{
       phoneNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       address: ['', [Validators.required]],
       vat: ['', [Validators.required, Validators.pattern('^[0-9]{9}$')]],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[A-Za-z\\d]{8,}$")]]
+      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{8,}$")]]
     });
   }
 
@@ -95,7 +95,7 @@ export class CreateUserComponent implements OnInit{
       this.service.createUser(formData).subscribe({
         next: response => {
           this.answer = response;
-          this.router.navigate(['/home']);
+          this.router.navigate(['/property-owner']);
         },
         error: err => console.error(`Something is wrong... ${err}`),
       });

@@ -10,7 +10,7 @@
 }
 
 .active-link {
-    background-color: #007bff;
+    background-color: #8ca3aa;
     color: white !important;
     border-radius: 5px;
     padding: 0.5rem 1rem;
@@ -36,6 +36,6 @@ header {
 .technico-brand-text {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #007bff;
+    color: #0b0b0b;
     letter-spacing: 1px;
 }
